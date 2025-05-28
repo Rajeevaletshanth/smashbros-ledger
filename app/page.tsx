@@ -442,33 +442,39 @@ export default function SmashLedger() {
 
           {/* Monthly Summary Card */}
           <motion.div variants={itemVariants}>
-            <motion.div whileHover={{ scale: 1.02 }} transition={{ type: "spring", stiffness: 300, damping: 20 }}>
-              <Card className="border-0 shadow-xl h-full bg-gray-800">
-                <CardHeader className="pb-3">
-                  <CardTitle className="text-lg font-semibold text-white flex items-center gap-2">
-                    <Activity className="w-5 h-5 text-blue-600" />
-                    This Month
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <div>
-                      <p className="text-sm text-gray-400">Collection</p>
-                      <p className="text-2xl font-bold text-green-600">
-                        Rs. {monthlyData.thisMonthCollection.toLocaleString()}
-                      </p>
-                    </div>
-                    <div className="text-right">
-                      <p className="text-sm text-gray-400">Expenses</p>
-                      <p className="text-2xl font-bold text-red-600">
-                        Rs. {monthlyData.thisMonthExpenses.toLocaleString()}
-                      </p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          </motion.div>
+  <motion.div
+    whileHover={{ scale: 1.02 }}
+    transition={{ type: "spring", stiffness: 300, damping: 20 }}
+  >
+    <Card className="border-0 shadow-xl h-full bg-gray-800">
+      <CardHeader className="pb-3">
+        <CardTitle className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+          <Activity className="w-5 h-5 text-blue-600" />
+          This Month
+        </CardTitle>
+      </CardHeader>
+
+      <CardContent className="space-y-4">
+        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+          <div className="text-left sm:text-start">
+            <p className="text-sm text-gray-400">Collection</p>
+            <p className="text-xl sm:text-2xl font-bold text-green-600">
+              Rs. {monthlyData.thisMonthCollection.toLocaleString()}
+            </p>
+          </div>
+
+          <div className="text-left sm:text-right">
+            <p className="text-sm text-gray-400">Expenses</p>
+            <p className="text-xl sm:text-2xl font-bold text-red-600">
+              Rs. {monthlyData.thisMonthExpenses.toLocaleString()}
+            </p>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+  </motion.div>
+</motion.div>
+
 
           <motion.div variants={itemVariants}>
             <motion.div
@@ -622,43 +628,44 @@ export default function SmashLedger() {
                         boxShadow: "0 10px 25px rgba(0,0,0,0.1)",
                         y: -2,
                       }}
-                      className="group relative bg-gray-900 rounded-xl border border-gray-700 p-6 hover:border-gray-600 transition-all duration-300 cursor-pointer overflow-hidden"
+                      className="group relative bg-gray-900 rounded-xl border border-gray-700 p-4 sm:p-6 hover:border-gray-600 transition-all duration-300 cursor-pointer overflow-hidden"
                     >
-                      <div className="relative flex items-center justify-between">
-                        <div className="flex items-center gap-4">
+                      <div className="relative flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
+                        <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 w-full">
                           <motion.div
-                            className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg"
+                            className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-xl flex items-center justify-center shadow-lg flex-shrink-0"
                             whileHover={{ rotate: 360 }}
                             transition={{ duration: 0.6 }}
                           >
                             <IconComponent className="w-6 h-6 text-white" />
                           </motion.div>
-                          <div className="space-y-1">
-                            <div className="flex items-center gap-2">
-                              <h4 className="font-bold text-white text-lg">{expense.name}</h4>
+                          <div className="space-y-1 w-full">
+                            <div className="flex flex-wrap items-center gap-2">
+                              <h4 className="font-bold text-white text-base sm:text-lg">{expense.name}</h4>
                               <Badge variant="outline" className="text-xs bg-blue-50 text-blue-700 border-blue-200">
                                 {expense.category}
                               </Badge>
                             </div>
                             <p className="text-gray-400 text-sm leading-relaxed">{expense.description}</p>
-                            <div className="flex items-center gap-2 text-xs text-gray-500">
+                            <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
                               <Calendar className="w-3 h-3" />
                               {expense.date}
                             </div>
                           </div>
                         </div>
-                        <div className="text-right">
+                        <div className="text-left sm:text-right">
                           <motion.p
-                            className="text-2xl font-bold text-white"
+                            className="text-xl sm:text-2xl font-bold text-white"
                             whileHover={{ scale: 1.1 }}
                             transition={{ type: "spring", stiffness: 400, damping: 10 }}
                           >
-                            Rs. {expense.amount.toLocaleString()}
+                            Rs.&nbsp;{expense.amount.toLocaleString()}
                           </motion.p>
                           <p className="text-sm text-gray-500">Amount</p>
                         </div>
                       </div>
                     </motion.div>
+
                   )
                 })}
               </div>
@@ -666,7 +673,7 @@ export default function SmashLedger() {
           </Card>
         </motion.div>
 
-        
+
 
         {/* Enhanced Sponsorship Section - Only show if sponsors exist */}
         <motion.div
@@ -913,7 +920,7 @@ export default function SmashLedger() {
         </motion.div>
       </div>
 
-      
+
 
       {/* Professional Footer */}
       <motion.footer
