@@ -207,6 +207,11 @@ export default function SmashLedger() {
     }
   }
 
+  function capitalizeFirstLetter(str: string): string {
+    if (!str) return '';
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
   // Function to determine payment status display
   const getPaymentStatusDisplay = (amount: number | null, monthKey: any) => {
     const monthIndex = monthMapping[monthKey]
@@ -608,7 +613,7 @@ export default function SmashLedger() {
                   <p className="text-sm text-gray-400 mt-1">Latest transactions with detailed information</p>
                 </div>
                 <Badge variant="outline" className="text-gray-300 border-gray-700">
-                  {expenses.length} Transactions
+                  {expenses.length}&nbsp;Transactions
                 </Badge>
               </div>
             </CardHeader>
@@ -643,7 +648,7 @@ export default function SmashLedger() {
                             <div className="flex flex-wrap items-center gap-2">
                               <h4 className="font-bold text-white text-base sm:text-lg">{expense.name}</h4>
                               <Badge variant="outline" className="text-xs bg-blue-50 text-blue-700 border-blue-200">
-                                {expense.category}
+                                {capitalizeFirstLetter(expense.category)}
                               </Badge>
                             </div>
                             <p className="text-gray-400 text-sm leading-relaxed">{expense.description}</p>
@@ -697,8 +702,8 @@ export default function SmashLedger() {
                   </CardTitle>
                   <p className="text-sm text-gray-400 mt-1">Organizations supporting SmashBros community</p>
                 </div>
-                <Badge variant="outline" className="text-purple-700 border-purple-300">
-                  {sponsors.length} Active Sponsors
+                <Badge variant="outline" className="text-gray-400 border-gray-300">
+                  {sponsors.length}&nbsp;Sponsors
                 </Badge>
               </div>
             </CardHeader>
