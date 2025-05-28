@@ -816,7 +816,7 @@ export default function SmashLedger() {
                   </motion.div>
                 </DialogTrigger>
 
-                <DialogContent className="sm:max-w-lg bg-gray-800 border border-gray-600 text-white">
+                <DialogContent className="sm:max-w-lg bg-gray-800 border border-gray-600 rounded-xl text-white">
                   <DialogHeader>
                     <DialogTitle className="flex items-center gap-2 text-xl font-semibold text-white">
                       <Gift className="w-5 h-5 text-purple-400" />
