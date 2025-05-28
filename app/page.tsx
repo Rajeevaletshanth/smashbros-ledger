@@ -442,38 +442,38 @@ export default function SmashLedger() {
 
           {/* Monthly Summary Card */}
           <motion.div variants={itemVariants}>
-  <motion.div
-    whileHover={{ scale: 1.02 }}
-    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-  >
-    <Card className="border-0 shadow-xl h-full bg-gray-800">
-      <CardHeader className="pb-3">
-        <CardTitle className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
-          <Activity className="w-5 h-5 text-blue-600" />
-          This Month
-        </CardTitle>
-      </CardHeader>
+            <motion.div
+              whileHover={{ scale: 1.02 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <Card className="border-0 shadow-xl h-full bg-gray-800">
+                <CardHeader className="pb-3">
+                  <CardTitle className="text-base sm:text-lg font-semibold text-white flex items-center gap-2">
+                    <Activity className="w-5 h-5 text-blue-600" />
+                    This Month
+                  </CardTitle>
+                </CardHeader>
 
-      <CardContent className="space-y-4">
-        <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
-          <div className="text-left sm:text-start">
-            <p className="text-sm text-gray-400">Collection</p>
-            <p className="text-xl sm:text-2xl font-bold text-green-600">
-              Rs. {monthlyData.thisMonthCollection.toLocaleString()}
-            </p>
-          </div>
+                <CardContent className="space-y-4">
+                  <div className="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+                    <div className="text-left sm:text-start">
+                      <p className="text-sm text-gray-400">Collection</p>
+                      <p className="text-xl sm:text-2xl font-bold text-green-600">
+                        Rs. {monthlyData.thisMonthCollection.toLocaleString()}
+                      </p>
+                    </div>
 
-          <div className="text-left sm:text-right">
-            <p className="text-sm text-gray-400">Expenses</p>
-            <p className="text-xl sm:text-2xl font-bold text-red-600">
-              Rs. {monthlyData.thisMonthExpenses.toLocaleString()}
-            </p>
-          </div>
-        </div>
-      </CardContent>
-    </Card>
-  </motion.div>
-</motion.div>
+                    <div className="text-left sm:text-right">
+                      <p className="text-sm text-gray-400">Expenses</p>
+                      <p className="text-xl sm:text-2xl font-bold text-red-600">
+                        Rs. {monthlyData.thisMonthExpenses.toLocaleString()}
+                      </p>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          </motion.div>
 
 
           <motion.div variants={itemVariants}>
@@ -649,7 +649,11 @@ export default function SmashLedger() {
                             <p className="text-gray-400 text-sm leading-relaxed">{expense.description}</p>
                             <div className="flex items-center gap-2 text-xs text-gray-500 mt-1">
                               <Calendar className="w-3 h-3" />
-                              {expense.date}
+                              {new Date(expense.date).toLocaleDateString('en-US', {
+                                year: 'numeric',
+                                month: 'long',
+                                day: 'numeric'
+                              })}
                             </div>
                           </div>
                         </div>
