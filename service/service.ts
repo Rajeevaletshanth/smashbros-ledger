@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://c496b30b-222b-40ae-90d6-06264fb407af-00-3uqjqa04e5ruj.sisko.replit.dev';
+const BASE_URL = 'https://smashbros-finance-backend--cdotq.fly.dev';
 
 // Create an Axios instance
 const api = axios.create({
